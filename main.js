@@ -1,5 +1,5 @@
 const addButton = document.querySelector('.addButton');
-var inputValue = document.querySelector('.input')
+var input = document.querySelector('.input')
 const container =document.querySelector('.container')
 
 class item {
@@ -50,4 +50,18 @@ class item {
 
 }
 
-new item ('Sport')
+function check () {
+    if(input.value !='') {
+        new item(input.value)
+        input.value =''
+    }
+}
+
+
+addButton.addEventListener('click', check)
+
+window.addEventListener('keydown', (e) => {
+    if(e.which ==13){
+    check ()
+}
+})
